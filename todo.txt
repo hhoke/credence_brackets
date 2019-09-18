@@ -1,0 +1,18 @@
+first off: find some quick and dirty method to do sentiment analysis on sentence level.
+https://pypi.org/project/scholarly/
+PDF-to-text conversion is tricky
+https://github.com/ecatkins/xpdf_python
+works in python >=3.4
+
+https://textblob.readthedocs.io/en/dev/
+
+for now:
+https://text-processing.com/demo/sentiment/
+
+for later:
+https://towardsdatascience.com/sentiment-analysis-with-python-part-1-5ce197074184
+
+
+I now have all the bits I need to try to classify these two toy examples.
+
+Another piece of this is backlink analysis. but that complexity can come later.
