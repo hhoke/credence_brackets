@@ -6,13 +6,46 @@ works in python >=3.4
 
 https://textblob.readthedocs.io/en/dev/
 
-for now:
-https://text-processing.com/demo/sentiment/
-
-for later:
-https://towardsdatascience.com/sentiment-analysis-with-python-part-1-5ce197074184
-
-
 I now have all the bits I need to try to classify these two toy examples.
 
 Another piece of this is backlink analysis. but that complexity can come later.
+
+My goal will be to figure out what sorts of methods will distinguish the positive citation to Kanwisher 1997 from the negative one, and then test further if I can find something that works.
+
+I want this to be quick and dirty. It doesn't have to be perfect, it just needs to give a good enough guess to be better than wading through hundreds of fucking pages of search results.
+
+Maybe sort by citation count on citing articles?
+
+cite.ai test:
+kanwisher 2017: OK, but doesn's show Isabel's paper
+another test:
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3945755/
+OBVIOUS bullshit but we see ZERO supporting or opposing, only 50 mentioning
+despite titles like 'Critical Review of the Effects of Glyphosate Exposure to the Environment and Humans through the Food Supply Chain'
+actually, after looking at that, might be a false positive.
+
+This software is hella weak at picking up pro/con. I bet they're only looking at the citation itself and the surrounding sentence. UI looks slick and they have NSF funding.
+
+# 20190927
+
+## kanwisher prototype
+Google Scholar doesn't even list the Gauthier paper as a 'citing' paper
+Neither does Web of Science
+what the fuuuuuck
+'semantic scholar' is decent at this, they have the 'highly impacted' setting which is a START.
+OK so ranking so far:
+Semantic Scholar (has 'highly influenced' metric)
+Microsoft Academic
+Google Scholar ( It's free, and has highest count)
+Literal google (it picked up Gauthier papr)
+WoS (same as google but not free)
+PubMed (only picked up a handful of citations
+
+Microsoft Academic is perhaps the most interesting to me.
+It ACTUALLY picks up the Gautihier paper(in general search but *not* in the 'cited' area!), and also captures basically all of the google scholar citations. 
+
+https://docs.microsoft.com/en-us/azure/cognitive-services/academic-knowledge/home
+
+Path forward for now: figure out how to use Semantic Scholar's API
+https://api.semanticscholar.org
+
