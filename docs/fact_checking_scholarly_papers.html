@@ -1,0 +1,108 @@
+<html>                                                                                                                                 
+<body>
+  <h1>
+    It is unreasonably difficult to figure out how accepted or disputed a scientific paper is.
+  </h1>
+  <p>
+  A quick and dirty way of making sense of an academic paper, especially when a paper cited in support of controversial clamis, is to try to find other papers that heavily cite it, and ideally find one that directly opposes its conclusion. With modern digital databases, this is easier than it used to be -- though it will hopefully be much easier in the years ahead!
+  </p>
+  <h3>THE PROBLEM</h3>
+  <p>
+    Most people do not provide any citations whatsoever for what they say. Of people who provide some kind of source for their claims, the vast majority will simply list the source and call it a day. 
+    https://hal.inria.fr/hal-01281190
+    https://www.theverge.com/2014/2/14/5411934/youre-not-going-to-read-this
+    <p>
+    Even Scientists fall into this vice. The best estimate I know of is that roughly 80% of citations in all of science are <a href='https://akademiai.com/doi/abs/10.1007/s11192-005-0028-2?journalCode=11192'>are copied from the lists of references of other papers</a>. So scientists themselves are apparently hard-pressed to actually read the (example from mongoose paper or author citing the opposite conclusion)
+  </p>
+  <p>
+    Why do they do this? Because it works. Even the majority of scientists, whose job it is to make sure the things they write in papers are true, do not read their own citations the majority of the time. Because of pirate services like sci-hub and an increased dedication to openness within the scientific community, more papers are available to more people than ever before. This provides some small hope that people who cite scientific papers will most probably be able to read them.
+  </p>
+  <p>
+    However, even if you can access a paper, it is incredibly difficult to place it in context. In order to fully place a paper in context, one must have a substantial knowledge of the field, he figures within it, their approaches and methodological strengths and weaknesses. Still, it is better to have a quick and dirty approximation of this knowledge, than none at all.
+  </p>
+  <p>
+    It should be easy to find two papers that were published as argument and counter-argument to each other through purely digital means. The one major scientific controversy I directly observed (as a part-time copy editor) is virtually undetectable in the digital space. I would have basically zero chance of discovering this conflict if I had not heard about it through word of mouth. This is a huge missed opportunity.
+  </p>
+  <p>
+    Whenever I find myself looking to support some argument, I make sure to find one source supporting it, and one opposing it<a href="#foot1">[1]</a>. I try to reconcile the two, or at least try to judge which is stronger. There's a danger to this, of course -- for example, one shouldn't draw a false equivalance between climate change denial and climate science, or Creationism and modern biology and geology. However, this approach is particularly good at exposing particularly weak evidence. Hopefully, having a simpler method of finding the opposite of obviously false papers such as 
+
+  </p>
+  <p>
+  of course, there is no substitute for reasoning! https://www.ncbi.nlm.nih.gov/pmc/articles/PMC61047/
+
+  </p>
+  <h3>OUR PROBLEM FOR NOW</h3>
+  <p>
+  I want to share sample workflows that solve toy examples of some of the problems I outlined above. Some of them will use small python scripts.
+  <h4>Toy Examples</h4>
+  <h4>Existing solutions</h4>
+  <ol>
+    <li> <a href='https://scite.ai'>scite.ai</a>
+      <p>
+      This is a slick project funded by the NSF and NIH that "combines deep learning with a network of experts to evaluate the veracity of scientific work.". Despite these efforts, it adds practically nothing past what Google Scholar provides in terms of its mission statement, namely to help the user "Check if a scientific paper has been supported or contradicted".
+      </p>
+      The single <a href='https://scite.ai/reports/association-between-amygdala-hyperactivity-to-gVamGz'>example</a> given on their front page has 233 citations, placing it well above the 50th percentile of roughly 4 citations [<a href='http://www.scottbot.net/HIAL/index.html@p=22108.html'>Scott Weingart's blog{0.7,0.9}</a>]. Roughly 10% of the citing papers are identified as either supporting or contradicting. Using 10% as a practical upper bound for the number of citing papers from which valence can be usefully extracted, well over half of papers are virtually guaranteed to have no support or contradiction information in this service. In practice, Scite is far less useful even than this.
+      Here is a demo in R that demonstrates 
+    http://rstudio-pubs-static.s3.amazonaws.com/501839_3b03977b367f493e8538fd9db6203fd0.html
+    My intent here is not to criticize scite.ai, but to point out its serious limitations. I think it is a huge step in the right direction. However, its impact will necessarily be limited due to the inherent difficulty of the problem. Academic language is notoriously hard to understand, many citations are neither supporting nor contradicting.
+  </ol>
+  1) 
+  am I shoehorning sentiment analysis demo in here? kind of, yes. The best workflow I have is to look at the 'highly influenced' metric on Semantic Scholar and leave it at that. I still want to at least TRY sentiment analysis to see if it picks up anything.
+  </p>
+  <p>
+  shepardization:
+  they have a crack team of editor/attorneys that on average catalogs new cases within 72 hours(https://www.lexisnexis.com/en-us/products/lexis-advance/shepards.page)
+  http://blog.cdnsciencepub.com/21st-century-science-overload/ 2.5M new papers every year
+  https://www.onelegal.com/blog/top-court-filing-statistics-from-around-the-country/ 84 million cases filed in state trial courts
+  most of these are settled
+  google scholar gives 328,000 cases in 2017
+  204k in 2018
+  162k in 2019
+  352k in 2016
+  350k in 2015
+
+  </p>
+  <p>
+  all in all, it feels pretty hopeless. The Allen Institute's Semantic Scholar is the most helpful for characterizing a novel paper, but even they cannot give us an understanding of whether citations are positive or negative!
+  </p>
+
+  <h3>A WORKAROUND</h3>
+   Research papers are hard to understand, even for highly-trained humans (due to the abstruse and often understated nature of academic verbiage). The task is even more difficult for machines. However, it would be positively trivial to make it incredibly easy for both machines and humans to understand the belief relationship a citation represents. All the author needs to do is express their credence! This could be developed as an add-on to all existing styles of citation. Simply tack on a credence to the end of the citation in braces:
+  Flores-Mir, C., et al. "Lay person's perception of smile aesthetics in dental and facial views." Journal of Orthodontics 31.3 (2004): 204-209. {0.9}
+  or alternatively
+  Samsel, Anthony, and Stephanie Seneff. "Glyphosate, pathways to modern diseases II: Celiac sprue and gluten intolerance." Interdisciplinary toxicology 6.4 (2013): 159-184. {-0.8}
+  One could of course argue that this is far too crude. The findings of scientific papers are complex, and one often agrees wholeheartedly with the conclusion, but thinks the paper itself is too methodologically flawed to be of any use. So there are two obvious uses of this numerical system already: marginal increase in credence, and posterior credence. That's simple enough to solve -- let's just add two numbers representing a prior and a posterior:
+  Flores-Mir, C., et al. "Lay person's perception of smile aesthetics in dental and facial views." Journal of Orthodontics 31.3 (2004): 204-209. {0.5,0.9}
+  or alternatively
+  Samsel, Anthony, and Stephanie Seneff. "Glyphosate, pathways to modern diseases II: Celiac sprue and gluten intolerance." Interdisciplinary toxicology 6.4 (2013): 159-184. {-0.9,-0.8}
+  One way we could accomplish this is give record our prior once we read the abstract, and then record our posterior credence after reading the entire paper. This is clearly not particularly precise, but is bound to be far more precise than inference of this information from sparse data by either man or machine.
+  There is another obvious flaw with this approach: Research papers often make many claims, some of which are probably true or well-supported, and some of which are not true or poorly supported. In practice, a citation should include the specific claim that is being referenced in the cited work. Use of the credence braces here, at the end of individual inline citations, can eliminate this kind of ambiguity. If we lived in an enlightened society, where research papers were published as code and versioned, we could make references to specific lines or elements. For example, we could cite a specific figure which we rank as high-credence. There are also some situations in which the citer is simply pointing to the existence of something, rather than making any claim about their knowledge or credence.
+  For situations in which the citer wishes to make no knowledge or credence claim, empty brackets will do {}. This covers references to data without a specific claim, claims taken for granted, and papers that are merely claimed to exist. An example would be "many papers have discussed this topic [1{},4{},12{}"].
+  The remaining obvious flaw is the distinction between effect size and probability the effect exists. It would be lovely if authors made their effect sizes more visible and z-scored if possible, but I think placing that burden upon the citer is a step too far. It should be the author's responsibility to report their effect size.
+  Ultimately this is the next level in due diligence that should accompany citing. It is difficult, but if we want to create and preserve truly credible and useful bodies of knowledge, it is well worth it.
+
+  <h3>Proof of Concept</h3>
+  GOing to pre-register this. I'll version it all with Git. Not sure that's rigorous enough (could probably be faked) but I'm mostly doing this for me. Would be GREAT if there was some sort of cryptographic protocol to pre-register study design.
+
+  https://medium.com/@mazormatan/cryptographic-preregistration-from-newton-to-fmri-df0968377bb2 love this
+
+  Is there some way I can implement something like this? Probably no, best I have it github commit times. Will have to do.
+
+
+</body>
+<HR>
+<footer>
+<h4>footnotes</h4>
+  <p id='foot1'>
+  <small> <b>[1]</b> There is a whole story behind that, of how I got over my addiction to partisan outrage and started to take steps to stop reasoning in such a motivated, biased way. It's the story of me as an arguer. My family is full of lawyers, and our pastime is arguing. When I was in middle and high school, I began to question my faith. Everyone around me hated this, and tried to make me go back on my convictions or mix me up or shame me into being quiet. Through arguing and being better-informed than my opponents about the bible and science, I was able to defend my pride and integrity. I was always ready to argue: on the ride to school, in religion class, at the dinner table. I felt I had to. In College, finally free of the burden of constantly justifying myself, I learned deconstruction and criticism on an academic scale. Both in class and out, we spent much of our time picking apart ideas and getting in detailed arguments. I used to pride myself on my ability to back up what I said with citations. During and after college, I would constantly get into arguments online and in person, and was usually able to supply my side with links and citations. I spent long hours researching and playing around with political debates, tying myself in knots with mental gymnastics to defend what was ultimately a dumb joke or a screenshot of a thoughtless twitter or tumblr post made by some teenager. In Cambridge, surrounded by people who worshipped cleverness, the game was always on. In truth this was really an escape from the problems of my life, and was of little use to anybody, though my partisan clique enjoyed it and encouraged me. I learned a lot and I usually won my arguments, becasue I had spent so much time on them. My arguments grew more and more partisan, more absurd, more difficult to defend -- but I was up to the task. I had to be the edgiest and cleverest. Until one day I took a step back, I looked at myself, and I realized I didn't truly believe much of what I was saying. I realized my research method was simply: 
+    <ol>
+      <li> Search until you find something that backs up what you're saying </li>
+      <li> stop </li>
+    </ol>
+    Ever since then, I have adopted a new habit. Whenever I find myself looking to support some argument, I do my best to find one source supporting it, and one opposing it. I come to less conclusions, but when I do make up my mind, I feel much more grounded!
+  </small>
+  </p>
+</footer>
+</html>
+
+10.1111/cyt.12093
