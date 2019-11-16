@@ -1,0 +1,30 @@
+Shepard's index angle: researched with Mindy the HLS librarian. GOing to try to talk to Peter Lega about R&D market
+/Users/hhoke1/Downloads/MRIcroGL 
+Zamyla's point is that there are perverse incentives 
+Goal: I want to work on this at least half an hour a day until it's done.
+# 20191029
+
+TODO Put together list of DOI test cases
+PETER(call on Friday if you don't hear back) what is the private research demand for this sort of thing like?
+CALL PHYLLIS what is the private research demand for this sort of thing like?
+https://www.ftc.gov/news-events/media-resources/truth-advertising
+https://www.adlawbyrequest.com/2019/03/articles/industry/nad-refers-advertising-claims-made-by-mattress-maker-to-ftc
+ 
+
+TEST CASES:
+http://rstudio-pubs-static.s3.amazonaws.com/501839_3b03977b367f493e8538fd9db6203fd0.html
+has 40 papers, 12 of which have pos/neg.
+That's like 6/20 so 30% which is not terrible.
+Test cases (I want to have 20 hand-picked:
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5777852/
+mongoose papers
+
+# 20191116
+
+There's also an issue of being able to actually map out this shit for yourself, when constructing an outline for example.
+I would love to show some kind of quantitative display of the utility of credence brackets.
+If I have 40 different papers, average of 100 citations per paper, that's 4000 citations to read through and evaluate. 
+
+I could do some kind of reverse-engineering sentiment analysis. I'll break that off into its own project.
+
+
