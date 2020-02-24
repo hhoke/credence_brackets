@@ -27,4 +27,9 @@ If I have 40 different papers, average of 100 citations per paper, that's 4000 c
 
 I could do some kind of reverse-engineering sentiment analysis. I'll break that off into its own project.
 
+I still think coming up with a representative sample of papers would be good and useful for THAT project.
+
+I'm going to abandon a proof-of-concept anyway. The whole point is that for the majority of papers, even a single valence  would be an improvement.
+The time it would take to sort through these papers would be simply enormous.
+
 
