@@ -1,0 +1,39 @@
+<body>
+  <h3>Credence Brackets</h3>
+  <p>
+   Research papers are hard to understand, even for highly-trained humans (due to the abstruse and often understated nature of academic verbiage). The task is even more difficult for machines. However, it would be positively trivial to make it incredibly easy for both machines and humans to understand the belief relationship a citation represents. All the author needs to do is express their credence! This could be developed as an add-on to all existing styles of citation. Simply tack on a credence to the end of the citation in braces:
+  </p>
+  <blockquote>
+  Flores-Mir, C., et al. "Lay person's perception of smile aesthetics in dental and facial views." Journal of Orthodontics 31.3 (2004): 204-209. {0.9}
+  </blockquote>
+  or alternatively
+  <blockquote>
+  Samsel, Anthony, and Stephanie Seneff. "Glyphosate, pathways to modern diseases II: Celiac sprue and gluten intolerance." Interdisciplinary toxicology 6.4 (2013): 159-184. {-0.8}
+  </blockquote>
+  <p>
+  One could argue that this is far too crude. The findings of scientific papers are complex. One may agree with the conclusion, but think the paper itself is too methodologically flawed to be of any use. We can take a step towards capturing this complexity using a Bayesian approach. Insead of just expressing credence, we can list our prior and posterior credence: 
+  </p>
+  <blockquote>
+  Flores-Mir, C., et al. "Lay person's perception of smile aesthetics in dental and facial views." Journal of Orthodontics 31.3 (2004): 204-209. {0.5,0.9}
+  </blockquote>
+  or alternatively
+  <blockquote>
+  Samsel, Anthony, and Stephanie Seneff. "Glyphosate, pathways to modern diseases II: Celiac sprue and gluten intolerance." Interdisciplinary toxicology 6.4 (2013): 159-184. {-0.9,-0.8}
+  </blockquote>
+  <p>
+  One way we could accomplish this is to record our prior once we read the abstract, and then record our posterior credence after reading the entire paper. This is clearly not particularly precise, but is bound to be far more precise than inference of this information from sparse data by either people or machines.
+  </p>
+  <p>
+  There is another obvious flaw with this approach: Research papers often make many claims, some of which are probably true or well-supported, and some of which are not true or poorly supported. In practice, a citation should include the specific claim that is being referenced in the cited work. Use of the credence braces here, at the end of individual inline citations, can eliminate this kind of ambiguity. If we lived in an enlightened society, where research papers were published as code and versioned, we could make references to specific lines or elements. For example, we could cite a specific figure or data table which we rank as high-credence. There are also some situations in which the citer is simply pointing to the existence of something, rather than making any claim about their knowledge or credence. Similarly, the citer may wish to show support but has made no special effort to evaluate the citation at hand.
+  </p>
+  <p>
+  For situations in which the citer wishes to make no knowledge or credence claim, empty brackets will do {}. This covers references to data without a specific claim, claims taken for granted, and papers that are merely claimed to exist. An example would be "many papers have discussed this topic [1{},4{},12{}]."
+  </p>
+  <p>
+  The remaining obvious flaw is the distinction between, on one hand, effect size, and on the other, the probability an effect exists, e.g. has a significant p-value. It would be lovely if authors made their effect sizes more visible and z-scored if possible, but I think placing that burden upon the citer is a step too far. It should be the author's responsibility to report their effect size.
+  </p>
+  <p>
+  This system, or something like it, is the next level in due diligence that should accompany citing. It is difficult, but if we want to create and preserve truly credible and useful bodies of knowledge, it is well worth it.
+  </p>
+ 
+</body>
