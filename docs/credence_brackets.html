@@ -6,21 +6,22 @@
    Research papers are hard to understand, even for highly-trained humans (due to the abstruse and often understated nature of academic verbiage). The task is even more difficult for machines. However, it would be positively trivial to make it incredibly easy for both machines and humans to understand the belief relationship a citation represents. All the author needs to do is express their credence! This could be developed as an add-on to all existing styles of citation. Simply tack on a credence to the end of the citation in braces:
   </p>
   <blockquote>
-  Flores-Mir, C., et al. "Lay person's perception of smile aesthetics in dental and facial views." Journal of Orthodontics 31.3 (2004): 204-209. {0.9}
+  Flores-Mir, C., et al. "Lay person's perception of smile aesthetics in dental and facial views." Journal of Orthodontics 31.3 (2004): 204-209. {9}
   </blockquote>
   or alternatively
   <blockquote>
-  Samsel, Anthony, and Stephanie Seneff. "Glyphosate, pathways to modern diseases II: Celiac sprue and gluten intolerance." Interdisciplinary toxicology 6.4 (2013): 159-184. {0.0}
+  Samsel, Anthony, and Stephanie Seneff. "Glyphosate, pathways to modern diseases II: Celiac sprue and gluten intolerance." Interdisciplinary toxicology 6.4 (2013): 159-184. {0}
   </blockquote>
   <p>
+  (note that this is out of 10, so not strictly a credence, which should be a percentage between 0 and 1. I think this is cleaner.)
   One could argue that this is far too crude. The findings of scientific papers are complex. One may agree with the conclusion, but think the paper itself is too methodologically flawed to be of any use. We can take a step towards capturing this complexity using a Bayesian approach. Insead of just expressing credence, we can list our prior and posterior credence: 
   </p>
   <blockquote>
-  Flores-Mir, C., et al. "Lay person's perception of smile aesthetics in dental and facial views." Journal of Orthodontics 31.3 (2004): 204-209. {0.5,0.9}
+  Flores-Mir, C., et al. "Lay person's perception of smile aesthetics in dental and facial views." Journal of Orthodontics 31.3 (2004): 204-209. {5,9}
   </blockquote>
   or alternatively
   <blockquote>
-  Samsel, Anthony, and Stephanie Seneff. "Glyphosate, pathways to modern diseases II: Celiac sprue and gluten intolerance." Interdisciplinary toxicology 6.4 (2013): 159-184. {0.1,0.0}
+  Samsel, Anthony, and Stephanie Seneff. "Glyphosate, pathways to modern diseases II: Celiac sprue and gluten intolerance." Interdisciplinary toxicology 6.4 (2013): 159-184. {1,0}
   </blockquote>
   <p>
   One way we could accomplish this is to record our prior once we read the abstract, and then record our posterior credence after reading the entire paper. This is clearly not particularly precise, but is bound to be far more precise than inference of this information from sparse data by either people or machines.
@@ -29,11 +30,11 @@
   There is another obvious flaw with this approach: Research papers often make many claims, some of which are probably true or well-supported, and some of which are not true or poorly supported. In practice, a citation should include the specific claim that is being referenced in the cited work. Use of the credence braces here, at the end of individual inline citations, can eliminate this kind of ambiguity. If research papers were published as code and versioned, we could make references to specific lines or object identifiers. For example, we could cite a specific figure or data table which we rank as high-credence. 
   </p>
   <blockquote>
-  The ideal bite, as considered by most orthodontists, is also viewed by most members of the public as more beautiful than non-ideal bite patterns such as crowded bite or cross bite (Flores-Mir et al., 2004 {0.5,0.9})
+  The ideal bite, as considered by most orthodontists, is also viewed by most members of the public as more beautiful than non-ideal bite patterns such as crowded bite or cross bite (Flores-Mir et al., 2004 {5,9})
   </blockquote>
   or alternatively
   <blockquote>
-    From the first sentence, the authors make claims that are merely quantitatively misleading, such as "Celiac disease, and, more generally, gluten intolerance, is a growing problem worldwide, but especially in North America and Europe, where an estimated 5% of the population now suffers from it." (Anthony and Seneff, 2013 {0.3,0.2}). Other experts acknowledge that gluten intolerance is hard to pin down ontologically, and epidemiologically may "vary enormously from 0.6%-6%" (Igbinedion et al, 2017 {0.6, 0.9}). However, the main claim, that gluten intolerance is the cause of gluten intolerance, is outrageously far-fetched (Anthony and Seneff, 2013 {0.1,0.0})
+    From the first sentence, the authors make claims that are merely quantitatively misleading, such as "Celiac disease, and, more generally, gluten intolerance, is a growing problem worldwide, but especially in North America and Europe, where an estimated 5% of the population now suffers from it." (Anthony and Seneff, 2013 {3,2}). Other experts acknowledge that gluten intolerance is hard to pin down ontologically, and epidemiologically may "vary enormously from 0.6%-6%" (Igbinedion et al, 2017 {6, 9}). However, the main claim, that gluten intolerance is the cause of gluten intolerance, is outrageously far-fetched (Anthony and Seneff, 2013 {1,0})
   </blockquote>
   <p>
   There are also some situations in which the citer is simply pointing to the existence of something, rather than making any claim about their knowledge or credence. Similarly, the citer may wish to show support but has made no special effort to evaluate the citation at hand. For situations in which the citer wishes to make no knowledge or credence claim, empty brackets will do {}. This covers references to data without a specific claim, claims taken for granted, and papers that are merely claimed to exist. An example would be "many papers have discussed this topic [1{},4{},12{}]."
